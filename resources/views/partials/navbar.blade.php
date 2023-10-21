@@ -9,8 +9,8 @@
     </button>
     <div class="auth-btn collapse justify-content-end navbar-collapse">
         @guest
-            <a class="btn btn-info  mr-2" href="">ورود</a>
-            <a class="btn btn-info mr-2" href="">ثبت نام</a>
+            <a class="btn btn-info  mr-2" href="{{route('auth.login.form')}}">ورود</a>
+            <a class="btn btn-info mr-2" href="{{route('auth.register.form')}}">ثبت نام</a>
         @endguest
         @auth
             <ul class="navbar-nav">
