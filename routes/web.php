@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware('guest')->group(function () {
+    Route::get('/auth/login', 'App\Http\Controllers\Auth\LoginController@loginForm')
+        ->name('auth.login.form');
+    Route::post('/auth/login', 'App\Http\Controllers\Auth\LoginController@login')
+        ->name('auth.login');
+    Route::get('/auth/register', 'App\Http\Controllers\Auth\RegisterController@registerForm')
+        ->name('auth.register.form');
+    Route::post('/auth/register', 'App\Http\Controllers\Auth\RegisterController@register')
+        ->name('auth.register');
+});
