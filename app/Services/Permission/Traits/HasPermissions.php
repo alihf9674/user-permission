@@ -21,6 +21,32 @@ trait HasPermissions
         return $this;
     }
 
+    /**
+     * detach permission from user
+     * @return HasPermissions
+     */
+    public function withDrawPermissions(...$drawPermissions)
+    {
+        $permissions = $this->getAllPermissions($drawPermissions);
+
+        $this->permissions()->detach($permissions);
+
+        return $this;
+    }
+
+    /**
+     * new permissions replace previous permissions
+     * @return HasPermissions
+     */
+    public function refreshPermissions(...$permissions)
+    {
+        $permissions = $this->getAllPermissions($permissions);
+
+        $this->permissions()->sync($permissions);
+
+        return $this;
+    }
+
     public function permissions()
     {
         return $this->blongsToMany(Permission::class);
