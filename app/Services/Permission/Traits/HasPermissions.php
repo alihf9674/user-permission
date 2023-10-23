@@ -6,11 +6,10 @@ use App\Models\Permission;
 
 trait HasPermissions
 {
-    public function permissions()
-    {
-        return $this->blongsToMany(Permission::class);
-    }
-
+    /**
+     * give permission to user
+     * @return HasPermissions
+     */
     public function givePermissionsTo(...$permissions)
     {
         $permissions = $this->getAllPermissions($permissions);
@@ -22,6 +21,14 @@ trait HasPermissions
         return $this;
     }
 
+    public function permissions()
+    {
+        return $this->blongsToMany(Permission::class);
+    }
+
+    /**
+     * find all permissions in arguments given
+     */
     protected function getAllPermissions(array $permissions)
     {
         return Permission::whereIn('name', array_flatten($permissions))->get();
