@@ -53,6 +53,16 @@ trait HasPermissions
     }
 
     /**
+     * check user has a permission
+     * @param Permission $permission
+     * @return boolean
+     */
+    public function hasPermission(Permission $permission)
+    {
+        return $this->permissions->contain($permission);
+    }
+
+    /**
      * find all permissions in arguments given
      */
     protected function getAllPermissions(array $permissions)
