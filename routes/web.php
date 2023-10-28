@@ -27,3 +27,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/auth/register', 'App\Http\Controllers\Auth\RegisterController@register')
         ->name('auth.register');
 });
+
+Route::group(['prefix' => 'panel'], function () {
+    Route::get('users', 'App\Http\Controllers\UserController@index')->name('users.index');
+});
