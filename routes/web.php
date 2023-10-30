@@ -30,4 +30,6 @@ Route::middleware('guest')->group(function () {
 
 Route::group(['prefix' => 'panel'], function () {
     Route::get('users', 'App\Http\Controllers\UserController@index')->name('users.index');
+    Route::get('users/{id}/edit', 'App\Http\Controllers\UserController@edit')->name('users.edit');
+    Route::post('users/{id}/update', 'App\Http\Controllers\UserController@update')->name('users.update');
 });
