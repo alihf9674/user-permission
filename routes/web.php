@@ -32,4 +32,9 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('users', 'App\Http\Controllers\UserController@index')->name('users.index');
     Route::get('users/{id}/edit', 'App\Http\Controllers\UserController@edit')->name('users.edit');
     Route::post('users/{id}/update', 'App\Http\Controllers\UserController@update')->name('users.update');
+    Route::get('roles', 'App\Http\Controllers\RoleController@index')->name('roles.index');
+    Route::post('roles', 'App\Http\Controllers\RoleController@store')->name('roles.store');
+    Route::get('roles/{id}/edit', 'App\Http\Controllers\RoleController@edit')->name('roles.edit');
+    Route::post('roles/{id}/update', 'App\Http\Controllers\RoleController@update')->name('roles.update');
+
 });
