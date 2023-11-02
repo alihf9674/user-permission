@@ -60,7 +60,7 @@ trait HasRoles
      * @param string $role
      * @return bool
      */
-    public function hasRoles(string $role)
+    public function hasRole(string $role)
     {
         return $this->roles->contains('name', $role);
     }
